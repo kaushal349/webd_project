@@ -1,2 +1,2 @@
-web: gunicorn webd_project.wsgi
+web: gunicorn pollproject.wsgi
 
