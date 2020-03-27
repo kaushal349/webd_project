@@ -11,7 +11,7 @@
                 <h1 class="display-5 text-center">Cast your vote</h1>
             </div>
                 <div class="card card-body create-poll-custom mx-auto">
-                    <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, eum!</h4>
+                    <h4>{{poll_instance.question}}</h4>
                     <hr>
                     <form method="POST"> {% csrf_token %}
                        <div class="btn-block form-group" data-toggle="buttons">
