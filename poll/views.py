@@ -46,3 +46,8 @@ def results_view(request, poll_id,*args, **kwargs):
     poll_instance = Poll.objects.get(pk=poll_id)
     context = {'poll_instance' : poll_instance}
     return render(request,'poll/results.html',context)
+    
+def delete_view(request,poll_id,*args,**kwargs):
+    poll_instance = Poll.objects.get(pk=poll_id)
+    poll_instance.delete()
+    return redirect('home')
