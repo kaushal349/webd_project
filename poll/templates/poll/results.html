@@ -1,0 +1,32 @@
+{% extends 'poll/base.html' %}
+
+{% block title %}Results!{% endblock %}
+
+{% block body %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 my-3">
+            <div class="card card-header"style="background: #91818a;">
+                <h1 class="display-5 text-center">Results</h1>
+            </div>
+                <div class="card card-body create-poll-custom mx-auto">
+                    <h4>{{ poll_instance.question }}</h4>
+                    <hr>
+                    <div class="list-group">
+                        <div class="list-group-item list-item-custom">
+                            <h6>{{ poll_instance.option1 }} --- {{ poll_instance.option1count }}</h6>
+                        </div>
+                        <div class="list-group-item list-item-custom">
+                            <h6>{{ poll_instance.option2 }} --- {{ poll_instance.option2count }}</h6>
+                        </div>
+                        <div class="list-group-item list-item-custom">
+                            <h6>{{ poll_instance.option3 }} --- {{ poll_instance.option3count }}</h6>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

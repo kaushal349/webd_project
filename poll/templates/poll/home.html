@@ -1,0 +1,35 @@
+{% extends 'poll/base.html' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block body %}
+
+
+<section class="py-5">
+    <div class="container mx-auto">
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title text-capitalize text-center">available polls</h3>
+                    </div>
+                </div>
+                <br>
+                {% for poll in polls %}
+                <ui class="list-group">
+                    <li class="list-group-item align-middle">
+                        <strong>{{ poll.question }}</strong>
+                        <span class="float-right">
+                            <a href="{% url 'vote'  poll.id %}" class="btn btn-xs btn-info">Vote</a>&nbsp; &nbsp;
+                            <a href="{% url 'results' poll.id %}" class="btn btn-xs btn-warning">Results</a>&nbsp;
+                        </span>
+                    </li>
+                    
+                </ui>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

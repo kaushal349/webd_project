@@ -1,0 +1,23 @@
+body {
+    font-family: 'Arvo', serif;
+}
+
+.navbar{
+    padding: 1rem;
+    padding-left: 3rem;
+}
+
+.jumbotron-custom{
+    margin-bottom: 0px;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    background: #e7decd;
+}
+
+.create-poll-custom{
+    background: #c3baaa;
+}
+
+.list-item-custom{
+    background: #e7decd;
+    
+}

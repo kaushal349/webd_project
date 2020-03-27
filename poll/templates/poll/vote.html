@@ -1,0 +1,53 @@
+{% extends 'poll/base.html' %}
+
+{% block title %}Vote!{% endblock %}
+
+{% block body %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10 my-3">
+            <div class="card card-header"style="background: #91818a;">
+                <h1 class="display-5 text-center">Cast your vote</h1>
+            </div>
+                <div class="card card-body create-poll-custom mx-auto">
+                    <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem, eum!</h4>
+                    <hr>
+                    <form method="POST"> {% csrf_token %}
+                       <div class="btn-block form-group" data-toggle="buttons">
+                           <div class="row py-3">
+                               <div class="col-md-4 d-flex justify-content-center">
+                                    <label class="btn active">
+                                        <span class="d-flex">
+                                            <input type="radio" name="poll" value="option1" autocomplete="off" checked>&nbsp;
+                                            {{ poll_instance.option1 }}
+                                        </span>
+                                    </label>
+                               </div>
+                               <div class="col-md-4 d-flex justify-content-center">
+                                    <label class="btn">
+                                        <span class="d-flex">
+                                            <input type="radio" name="poll" value="option2" autocomplete="off">&nbsp;
+                                            {{ poll_instance.option2 }}
+                                        </span>
+                                    </label>
+                               </div>
+                               <div class="col-md-4 d-flex justify-content-center">
+                                <label class="btn">
+                                    <span class="d-flex">
+                                        <input type="radio" name="poll" value="option3" autocomplete="off ">&nbsp;
+                                        {{ poll_instance.option3 }}
+                                    </span>
+                                </label>
+                           </div>
+                        </div>
+                        <div class="row justify-content-center mt-1">
+                            <button type="submit" class="btn btn-warning btn-lg">submit</button>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
