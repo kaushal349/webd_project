@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Login!{% endblock %}
+{% block body %}
+
+{% include 'navbar.html' %}
+
+<section id="contact" class="py-5">
+    <div class="container">
+        <!-- title -->
+        <div class="row">
+            <div class="col text-center mx-auto">
+                <h1 class="display-4 text-uppercase text-dark mb-0">
+                    <strong class = "font-weight-bold">Welcome</strong>
+                </h1>
+                <div class="bg-warning title-underline"></div>
+            </div>
+        </div>
+        <!-- end of title -->
+        <div class="row py-3">
+            <div class="col-md-6 my-3 mx-auto">
+                <div class="card card-body create-poll-custom mb-0">
+                    <form method="POST"> {% csrf_token %}
+                        <!-- name -->
+                        <div class="input-group my-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" name = "username" class="form-control" placeholder="username">
+                        </div>
+                        <!-- end of name -->
+                        <div class="input-group my-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" name = "password" class="form-control" placeholder="password">
+                        </div>
+                        {% if messages %}
+                        <ul>
+                        {% for message in messages %}
+                        <li class="{{messgae.tags}}">{{message}}</li>
+                        {% endfor %}
+                        </ul>
+                        {% endif %}
+                        <div class="row justify-content-center mt-1">
+                            <button type="submit" class="btn btn-warning btn-lg text-uppercase">Login</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'url:register' %}"> Not registered yet? Click here to register!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

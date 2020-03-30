@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Login!{% endblock %}
+{% block body %}
+
+{% include 'navbar.html' %}
+
+<section id="contact" class="py-5">
+    <div class="container">
+        <!-- title -->
+        <div class="row">
+            <div class="col text-center mx-auto">
+                <h1 class="display-4 text-uppercase text-dark mb-0">
+                    <strong class = "font-weight-bold">Welcome</strong>
+                </h1>
+                <div class="bg-warning title-underline"></div>
+            </div>
+        </div>
+        <!-- end of title -->
+        <div class="row py-3">
+            <div class="col-md-6 my-3 mx-auto">
+                <div class="card card-body create-poll-custom mb-0">
+                    <form method="POST"> {% csrf_token %}
+                        <!-- name -->
+                        <div class="input-group my-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <!-- <input type="text" name = "username" class="form-control" placeholder="username"> -->
+                            {% render_field form.username  class="form-control" placeholder="username" %}
+                        </div>
+                        {{form.username.errors}}
+                        <!-- end of name -->
+                        <div class="input-group my-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <!-- <input type="password" name = "password1" class="form-control" placeholder="password"> -->
+                            {% render_field form.password1  class="form-control" placeholder="password" %}
+                        </div>
+                        {{form.password1.errors}}
+                        <div class="input-group my-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <!-- <input type="password" name = "password2" class="form-control" placeholder="confrim password"> -->
+                            {% render_field form.password2  class="form-control" placeholder="confirm password" %}
+                        </div>
+                        {{form.password2.errors}}
+                        <div class="row justify-content-center mt-1">
+                            <button type="submit" class="btn btn-warning btn-lg text-uppercase">Register</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{% url 'url:login' %}"> Already registered? Click here to login!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

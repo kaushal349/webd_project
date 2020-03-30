@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+{% include 'navbar.html' %}
+
+<section id="welcome">
+    <div class="container-fluid py-5">
+        <div class="row height align-items-center">
+            <div class="col text-center text-white">
+                <h1 class="font-weight-bold">Welcome to URL shortener</h1>
+                <p class="lead text-white">Shorten your url's in an easy way!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="section" id="shrink-url">
+    <div class="container">
+        <div class="row">
+            <div class="col my-5 card card-body">
+                <form method="POST"> {% csrf_token %}
+                    <div class="form-group mt-3">
+                        <!-- <input type="text" name="url" class="form-control form-control-lg" placeholder="Enter your URL here"> -->
+                        {% render_field form.actual_url name='url' class="form-control form-control-lg" placeholder="Enter your URL here" %}
+                    </div>
+                    {{form.actual_url.errors }}
+                    <div class="form-group mt-3">
+                        <!-- <input type="text" name="shortcode" class="form-control form-control-lg" placeholder="Enter shortcode (optional)"> -->
+                        {% render_field form.shortcode name='shortcode' class="form-control form-control-lg" placeholder="Enter shortcode (optional)" %}
+                    </div>
+                    {{form.shortcode.errors }}
+                    <div class="row justify-content-center">
+                        <button type="submit" class="btn btn-info btn-lg">Generate</button>
+                    </div>
+                    <div class="input-group my-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">shrinked-url:</span>
+                        </div>
+                        <!-- <input type="text" name="shrinked-url" readonly class="form-control form-control-lg" value="{{code_string}}" > -->
+                        <div class="form-control form-control-lg overflow-auto" type='text'>
+                            {% if shortcode != '' %}
+                            <!-- { request.get_host }}/{{shortcode}} -->
+                            <a href="{% url 'url:redirector' shortcode %}" >{{ request.get_host }}/{{shortcode}}</a>
+                            {% endif %}
+                        </div>
+                        <a href="{% url 'url:home' %}" class = "input-group-append"><button class="btn btn-primary" type="button" value="reset">New URL</button></a>
+                        <!-- <div class="input-group-append">
+                            <input type="reset" value = "New URL">
+                        </div> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

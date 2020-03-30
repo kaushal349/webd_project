@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Database{% endblock %}
+{% block body %}
+
+{% include 'navbar.html' %}
+
+<section id="database_filler" class="bg-dark">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col text-white text-center text-capitalize">
+                <h4 class="font-weight-bold">This page contains all shortened URL's</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container py-5">
+    <div class="row py-3">
+        {% for obj in objects %}
+        <div class="col-md-6 col-lg-4 py-3">
+            <div class="card card-header">
+                <div class="card-title text-center font-weight-bold">
+                    {{obj.actual_url}}
+                </div>
+            </div>
+            <div class="card">
+                <div class="list-group">
+                    <li class="list-group-item text-center">
+                        <a href="{% url 'url:redirector' obj.shortcode %}">{{ request.get_host }}/{{obj.shortcode}}</a>
+                    </li>
+                </div>
+            </div>
+            {% if request.user.is_authenticated %}
+            <div class="card card-footer">
+                <a href="{% url 'url:delete' obj.id %}" class="btn btn-danger text-capitalize">Delete</a>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
