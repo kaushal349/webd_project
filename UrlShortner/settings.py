@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import socket
 import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -29,7 +30,7 @@ DEBUG = True
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # ALLOWED_HOSTS = ['.herokuapp.com']
-ALLOWED_HOSTS = ['sl-url.herokuapp.com','https://sl-url.herokuapp.com/']
+ALLOWED_HOSTS = []
 
 
 
