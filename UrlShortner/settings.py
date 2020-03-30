@@ -29,7 +29,7 @@ DEBUG = False
 # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # ALLOWED_HOSTS = ['.herokuapp.com']
-ALLOWED_HOSTS = ['sl-url.herokuapp.com']
+ALLOWED_HOSTS = ['sl-url.herokuapp.com','https://sl-url.herokuapp.com/']
 
 
 
