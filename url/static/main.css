@@ -31,3 +31,9 @@
     background-repeat: no-repeat;
     /* background-attachment: fixed; */
 }
+
+.scrolling-wrapper{
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+}

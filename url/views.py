@@ -44,6 +44,7 @@ def db_view(request):
     context = {'objects' : objects}
     return render(request, 'database.html',context)
 
+
 def login_view(request):
     if request.method == "POST":
         username = request.POST.get('username')

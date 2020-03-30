@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
-{% load static %}
 {% load widget_tweaks %}
 {% block title %}Home{% endblock %}
 
 {% block body %}
 
-{% include 'navbar.html' %}
 
 <section id="welcome">
     <div class="container-fluid py-5">
@@ -19,7 +17,7 @@
 </section>
 
 
-<div class="section" id="shrink-url">
+<section id="shrink-url">
     <div class="container">
         <div class="row">
             <div class="col my-5 card card-body">
@@ -37,18 +35,19 @@
                     <div class="row justify-content-center">
                         <button type="submit" class="btn btn-info btn-lg">Generate</button>
                     </div>
-                    <div class="input-group my-3">
+                    <div class="input-group my-5">
                         <div class="input-group-prepend">
                             <span class="input-group-text">shrinked-url:</span>
                         </div>
                         <!-- <input type="text" name="shrinked-url" readonly class="form-control form-control-lg" value="{{code_string}}" > -->
-                        <div class="form-control form-control-lg overflow-auto" type='text'>
+                        <div class="form-control form-control-lg scrolling-wrapper" type='text'>
                             {% if shortcode != '' %}
                             <!-- { request.get_host }}/{{shortcode}} -->
-                            <a href="{% url 'url:redirector' shortcode %}" >{{ request.get_host }}/{{shortcode}}</a>
+                            <a href="{% url 'url:redirector' shortcode %}"><small>{{ request.get_host }}/{{shortcode}}</small></a>
                             {% endif %}
                         </div>
-                        <a href="{% url 'url:home' %}" class = "input-group-append"><button class="btn btn-primary" type="button" value="reset">New URL</button></a>
+                        <a href="{% url 'url:home' %}" class="input-group-append"><button class="btn btn-primary"
+                                type="button" value="reset">New URL</button></a>
                         <!-- <div class="input-group-append">
                             <input type="reset" value = "New URL">
                         </div> -->
@@ -57,6 +56,6 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 
 {% endblock %}

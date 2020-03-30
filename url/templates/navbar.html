@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-<nav class="navbar navbar-expand-sm custom-nav">
+<nav class="navbar navbar-expand-sm navbar-dark custom-nav">
     <div class="container">
         <div class="navbar-brand">
             <h4 class="text-lead my-auto">Easy-URL</h4>
         </div>
-        <button class="navbar-toggler custom-toggler" data-toggle = "collapse" data-target = "#navbar_items">
-            <i class="fas fa-bars text-white"></i>
+        <button type="button" class="navbar-toggler custom-toggler" data-toggle = "collapse" data-target = "#navbar_items">
+            <!-- <i class="fas fa-bars text-white"></i> -->
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse text-center" id = "navbar_items">
 
